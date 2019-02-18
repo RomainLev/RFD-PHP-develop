@@ -38,9 +38,18 @@ if (isset($_POST['maurice'])) {
     }
 
     else {
-        $sdl = "INSERT INTO T_USERS
+        $sql = "INSERT INTO T_USERS
         (USENOM, USEPRENOM, USEMAIL, USEPASSWORD)
-        VALUES ($nom, $prenom, $mail, $mdp)";
+        VALUES ('" . $nom . "', '" . $prenom . "', '" . $mail . "', '" . $mdp . "') ";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue('USENOM', $nom, PDO::PARAM_STR);
+        $query->bindValue('USEPRENOM', $prenom, PDO::PARAM_STR);
+        $query->bindValue('USEMAIL', $mail, PDO::PARAM_STR);
+        $query->bindValue('USEMDP', $mdp, PDO::PARAM_STR);
+        $query->execute();
+
+        echo "Coucou c'est bien enregistré !";
     }
 
 
