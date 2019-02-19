@@ -2,11 +2,11 @@
 session_start();
 
 
-if (isset($_SESSEION['login']) && $_SESSION['login'] == 1) {
+if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
     echo "Vous êtes bien connectés";
 }
-else {
-    echo "Vous n'êtes pas connectés !";
+    else {
+        echo "Vous n'êtes pas connectés !";
 }
 //echo session_id();
 date_default_timezone_set('Europe/Paris');
