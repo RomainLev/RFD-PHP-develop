@@ -11,7 +11,11 @@
             }
             else {
                 echo "<li><a href=\"index.php?page=login\">Login</a></li>";
-            }
+            }?>
+            <?php
+                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1){
+                    echo "<ul><li><a href=\"index.php?page=ajoutProduits\">Ajouter un produit</a></li></ul>";
+                }
             ?>
             <li><a href="index.php?page=contact">Contact</a></li>
         </ul>

@@ -28,6 +28,7 @@ if (isset($_POST['barnabe'])) {
         $result = $pdo->query($getDatas)->fetch(PDO::FETCH_ASSOC);
         $_SESSION['nom'] = $result['USENOM'];
         $_SESSION['prenom'] = $result['USEPRENOM'];
+        $_SESSION['admin'] = $result['USEADMIN'];
         $hash = $result['USEPASSWORD'];
 
         if (password_verify($mdp, $hash)) {
