@@ -10,8 +10,11 @@ if (isset($_POST['albator'])) {
     $errorPhoto = $_FILES['photo']['error'];
     $sizePhoto = $_FILES['photo']['size'];
     if ($errorPhoto == 0) {
-        $nomPhoto = supprAxen($nomPhoto);
-        var_dump($nomPhoto);
+        $nomPhoto = suppraccents($nomPhoto);
+        if (checkExtension("image", $nomPhoto))
+            echo "Extension permise";
+        else
+            echo "Extension verbuten";
     }
     else {
         echo "<p>Môrche pô</p>";

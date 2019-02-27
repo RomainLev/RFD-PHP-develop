@@ -17,6 +17,7 @@ include_once "./functions/displayTitle.php";
 include_once "./functions/suppraccents.php";
 include_once "./includes/html.php";
 include_once "./includes/header.php";
+include_once "./functions/checkExtension.php";
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
