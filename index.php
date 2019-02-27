@@ -10,9 +10,11 @@ if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
 }
 //echo session_id();
 date_default_timezone_set('Europe/Paris');
+setlocale(LC_CTYPE, 'fr_FR.UTF-8');
 include_once "./functions/debug.php";
 include_once "./includes/pdo.php";
 include_once "./functions/displayTitle.php";
+include_once "./functions/suppraccents.php";
 include_once "./includes/html.php";
 include_once "./includes/header.php";
 
