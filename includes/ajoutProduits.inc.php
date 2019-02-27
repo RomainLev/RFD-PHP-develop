@@ -11,10 +11,20 @@ if (isset($_POST['albator'])) {
     $sizePhoto = $_FILES['photo']['size'];
     if ($errorPhoto == 0) {
         $nomPhoto = suppraccents($nomPhoto);
-        if (checkExtension("image", $nomPhoto))
-            echo "Extension permise";
+        if (checkExtension("image", $nomPhoto) && checkMime("image", $typePhoto)) {
+            $path = "./assets/photos/";
+            $nomPhoto = $path . $nomPhoto;
+
+            var_dump($nomPhoto);
+
+            if (move_uploaded_file($tmpPhoto, $nomPhoto))
+                echo "Deplacay";
+            else
+                echo "Pas deplacay";
+        }
         else
             echo "Extension verbuten";
+
     }
     else {
         echo "<p>Môrche pô</p>";
